@@ -658,7 +658,7 @@
   display: block;
 }
 .nav-right {
-  width: 400px;
+  width: 420px;
   height: 100%;
   background: #fff;
   border-right: 1px solid #e5e8ec;
@@ -676,7 +676,7 @@
   transition: margin-left 0.5s;
 }
 .nav-right .title-list.friend {
-  margin-left: 401px;
+  margin-left: 421px;
 }
 .nav-right .title-list .right-top {
   height: 45px;
@@ -1022,7 +1022,7 @@
   text-align: center;
   vertical-align: middle;
   display: table-cell;
-  width: 400px;
+  width: 420px;
   font-size: 18px;
   position: relative;
 }
