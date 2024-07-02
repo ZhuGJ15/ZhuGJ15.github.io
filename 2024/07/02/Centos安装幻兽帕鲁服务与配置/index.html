@@ -303,7 +303,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-07-02 13:23:53'>2024-07-02 11:49</time>
+            Created At : <time class="date" title='Updated At: 2024-07-02 14:53:23'>2024-07-02 11:49</time>
         
     </div>
     <div class="article-meta">
@@ -336,7 +336,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%91%BD%E4%BB%A4"><span class="toc-text">游戏中命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-API"><span class="toc-text">Rest API</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -352,9 +352,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li></ol></div></p>
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%91%BD%E4%BB%A4"><span class="toc-text">游戏中命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-API"><span class="toc-text">Rest API</span></a></li></ol></div></p>
 <blockquote>
-<p>&emsp;这两天玩幻兽帕鲁有点上头，自己打了个幻兽帕鲁的服务器。这个贴子记录一下搭建过程和配置。</p>
+<p>&emsp;这两天玩幻兽帕鲁有点上头，自己搭了个幻兽帕鲁的服务器。这个贴子记录一下搭建过程和配置。</p>
 </blockquote>
 <h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><blockquote>
 <p>官方技术文档：<a target="_blank" rel="noopener" href="https://tech.palworldgame.com/">https://tech.palworldgame.com/</a><br>硬件配置：4C16G（官方推荐） 我用的是4C8G</p>
@@ -480,6 +480,100 @@ bShowPlayerList=False,              #按ESC键后，显示玩家列表。默认�
 AllowConnectPlatform=Steam,         #允许连接的客户端平台，可以是Steam/Xbox，默认是Steam
 bIsUseBackupSaveData=True,          #启用世界的备份，建议开启
 LogFormatType=Text
+</code></pre>
+<h2 id="游戏中命令"><a href="#游戏中命令" class="headerlink" title="游戏中命令"></a>游戏中命令</h2><p>&emsp;必须要在上述配置<code>AdminPassword</code>不为空，才能开启在游戏中输入命令。<br>&emsp;游戏中只有管理员才能执行命令。按回车键，输入<code>/AdminPassword &lt;设置的密码&gt;</code>获取管理员权限。以下是管理员能够执行的命令。</p>
+<blockquote>
+</blockquote>
+<pre><code>/AdminPassword      #使用密码获取管理员权限
+/Shutdown [Seconds] [MessageText]       #关闭服务器。如果指定了[Seconds], 服务器会在对应时间后自动关闭。[MessageText]是给游戏内玩家发送的信息.
+/DoExit     #强制关闭服务器
+/Broadcast &lt;MessageText&gt;        #向所有玩家发送消息
+/KickPlayer &lt;SteamID&gt;       #把玩家踢出服务器
+/BanPlayer &lt;SteamID&gt;        #封禁玩家
+/UnBanPlayer        #解禁玩家
+/TeleportToPlayer &lt;SteamID&gt;         #传送到该玩家身边
+/TeleportToMe &lt;SteamID&gt;             #将玩家传送到我身边
+/ShowPlayers            #显示所有在线玩家信息
+/Info           #显示服务器信息
+/Save           #保存世界数据
+</code></pre>
+<h2 id="Rest-API"><a href="#Rest-API" class="headerlink" title="Rest API"></a>Rest API</h2><ol>
+<li>获取服务器信息    <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/info">http://localhost:8212/v1/api/info</a></li>
+</ol>
+<pre><code>curl -L -X GET &#39;http://localhost:8212/v1/api/info&#39; -H &#39;Accept: application/json&#39;
+</code></pre>
+<ol start="2">
+<li>获取玩家列表     <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/players">http://localhost:8212/v1/api/players</a></li>
+</ol>
+<pre><code>curl -L -X GET &#39;http://localhost:8212/v1/api/players&#39; -H &#39;Accept: application/json&#39;
+</code></pre>
+<ol start="3">
+<li>获取服务器配置       <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/settings">http://localhost:8212/v1/api/settings</a></li>
+</ol>
+<pre><code>curl -L -X GET &#39;http://localhost:8212/v1/api/settings&#39; -H &#39;Accept: application/json&#39;
+</code></pre>
+<ol start="4">
+<li>获取服务器指标       <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/metrics">http://localhost:8212/v1/api/metrics</a></li>
+</ol>
+<pre><code>curl -L -X GET &#39;http://localhost:8212/v1/api/metrics&#39; -H &#39;Accept: application/json&#39;
+</code></pre>
+<ol start="5">
+<li>发送公屏消息     <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/announce">http://localhost:8212/v1/api/announce</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/announce&#39; \
+-H &#39;Content-Type: application/json&#39; \
+--data-raw &#39;&#123;
+  &quot;message&quot;: &quot;Hello, Palworld!&quot;
+&#125;&#39;
+</code></pre>
+<ol start="6">
+<li>踢出玩家     <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/kick">http://localhost:8212/v1/api/kick</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/kick&#39; \
+-H &#39;Content-Type: application/json&#39; \
+--data-raw &#39;&#123;
+  &quot;userid&quot;: &quot;steam_00000000000000000&quot;,
+  &quot;message&quot;: &quot;You are kicked.&quot;
+&#125;&#39;
+</code></pre>
+<ol start="7">
+<li>封禁玩家     <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/ban">http://localhost:8212/v1/api/ban</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/ban&#39; \
+-H &#39;Content-Type: application/json&#39; \
+--data-raw &#39;&#123;
+  &quot;userid&quot;: &quot;steam_00000000000000000&quot;,
+  &quot;message&quot;: &quot;You are banned.&quot;
+&#125;&#39;
+</code></pre>
+<ol start="8">
+<li>解禁玩家     <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/unban">http://localhost:8212/v1/api/unban</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/unban&#39; \
+-H &#39;Content-Type: application/json&#39; \
+--data-raw &#39;&#123;
+  &quot;userid&quot;: &quot;steam_00000000000000000&quot;
+&#125;&#39;
+</code></pre>
+<ol start="9">
+<li>保存世界     <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/save">http://localhost:8212/v1/api/save</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/save&#39;
+</code></pre>
+<ol start="10">
+<li>关闭服务器      <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/shutdown">http://localhost:8212/v1/api/shutdown</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/shutdown&#39; \
+-H &#39;Content-Type: application/json&#39; \
+--data-raw &#39;&#123;
+  &quot;waittime&quot;: 30,
+  &quot;message&quot;: &quot;Server will shutdown in 10 seconds.&quot;
+&#125;&#39;
+</code></pre>
+<ol start="11">
+<li>强制关闭服务器      <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/stop">http://localhost:8212/v1/api/stop</a></li>
+</ol>
+<pre><code>curl -L -X POST &#39;http://localhost:8212/v1/api/stop&#39;
 </code></pre>
 
       
