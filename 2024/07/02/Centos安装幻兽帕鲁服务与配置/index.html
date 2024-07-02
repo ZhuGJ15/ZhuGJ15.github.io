@@ -303,7 +303,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2024-07-02 14:53:23'>2024-07-02 11:49</time>
+            Created At : <time class="date" title='Updated At: 2024-07-02 15:03:35'>2024-07-02 11:49</time>
         
     </div>
     <div class="article-meta">
@@ -336,7 +336,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%91%BD%E4%BB%A4"><span class="toc-text">游戏中命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-API"><span class="toc-text">Rest API</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4"><span class="toc-text">管理员命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-API"><span class="toc-text">Rest API</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -352,7 +352,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E5%91%BD%E4%BB%A4"><span class="toc-text">游戏中命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-API"><span class="toc-text">Rest API</span></a></li></ol></div></p>
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA"><span class="toc-text">搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E5%91%98%E5%91%BD%E4%BB%A4"><span class="toc-text">管理员命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rest-API"><span class="toc-text">Rest API</span></a></li></ol></div></p>
 <blockquote>
 <p>&emsp;这两天玩幻兽帕鲁有点上头，自己搭了个幻兽帕鲁的服务器。这个贴子记录一下搭建过程和配置。</p>
 </blockquote>
@@ -481,7 +481,7 @@ AllowConnectPlatform=Steam,         #允许连接的客户端平台，可以是S
 bIsUseBackupSaveData=True,          #启用世界的备份，建议开启
 LogFormatType=Text
 </code></pre>
-<h2 id="游戏中命令"><a href="#游戏中命令" class="headerlink" title="游戏中命令"></a>游戏中命令</h2><p>&emsp;必须要在上述配置<code>AdminPassword</code>不为空，才能开启在游戏中输入命令。<br>&emsp;游戏中只有管理员才能执行命令。按回车键，输入<code>/AdminPassword &lt;设置的密码&gt;</code>获取管理员权限。以下是管理员能够执行的命令。</p>
+<h2 id="管理员命令"><a href="#管理员命令" class="headerlink" title="管理员命令"></a>管理员命令</h2><p>&emsp;必须要在上述配置<code>AdminPassword</code>不为空，才能开启在游戏中输入命令。<br>&emsp;游戏中只有管理员才能执行命令。按回车键，输入<code>/AdminPassword &lt;设置的密码&gt;</code>获取管理员权限。以下是管理员能够执行的命令。</p>
 <blockquote>
 </blockquote>
 <pre><code>/AdminPassword      #使用密码获取管理员权限
@@ -498,7 +498,7 @@ LogFormatType=Text
 /Save           #保存世界数据
 </code></pre>
 <h2 id="Rest-API"><a href="#Rest-API" class="headerlink" title="Rest API"></a>Rest API</h2><ol>
-<li>获取服务器信息    <a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/info">http://localhost:8212/v1/api/info</a></li>
+<li>获取服务器信息<br>&ensp;<a target="_blank" rel="noopener" href="http://localhost:8212/v1/api/info">http://localhost:8212/v1/api/info</a></li>
 </ol>
 <pre><code>curl -L -X GET &#39;http://localhost:8212/v1/api/info&#39; -H &#39;Accept: application/json&#39;
 </code></pre>
