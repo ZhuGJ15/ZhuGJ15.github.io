@@ -2,20 +2,20 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>spark读取mysql数据问题 | The Blog of ZhuGJ</title>
+  <title>spark读取mysql数据问题 | Eureka&#39;s Blog</title>
   <meta name="keywords" content="">
-  <meta name="description" content="spark读取mysql数据问题 | The Blog of ZhuGJ">
+  <meta name="description" content="spark读取mysql数据问题 | Eureka&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="22年毕业于华中科技大学软件工程专业从事过 Web 后端工作当前方向是大数据开发工作内容包括框架开发、集群运维和数据分析目前就职于某不知名小厂">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="http://example.com/about/index.html">
-<meta property="og:site_name" content="The Blog of ZhuGJ">
+<meta property="og:site_name" content="Eureka&#39;s Blog">
 <meta property="og:description" content="22年毕业于华中科技大学软件工程专业从事过 Web 后端工作当前方向是大数据开发工作内容包括框架开发、集群运维和数据分析目前就职于某不知名小厂">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-05-27T10:59:53.000Z">
 <meta property="article:modified_time" content="2024-05-28T03:45:45.362Z">
-<meta property="article:author" content="ZhuGJ">
+<meta property="article:author" content="Eureka">
 <meta name="twitter:card" content="summary">
 
 
@@ -64,7 +64,7 @@
          src="/img/avatar.jpg"/>
 </a>
 <div class="author">
-    <span>ZhuGJ</span>
+    <span>Eureka</span>
 </div>
 
 <div class="icon">
@@ -427,7 +427,7 @@
 <p>我们有一张业务的mysql表，这张表唯一的主键<code>id</code>是稀疏不连续的，id已经自增到300亿了，但是表中实际只有3000w条数据。<br>如果按id来读数据，会遇到两个问题：<br>    1. 按照id的数量来分区，会有数据倾斜问题。比如每个分区读10w个id，可能有些分区里这10w个id全是空的数据。<br>    2. 如果我们按照实际数量来分区，可能会遇到每个分区id跨度太大，mysql慢查询压力大的问题。比如每个分区10w条数据，有些分区的10w条数据，最大的id和最小的id相差可能有上千万<br>如果用 limit offset来读数据，会遇到一个问题：<br>    1. mysql执行offset的时候，会做全表扫描，把offset的数据加载到内存和磁盘里，直到找到需要的数据。这样对mysql的压力可能更大。</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 hellozhugj@gmail.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
     </div>
 </article>
 
@@ -467,7 +467,7 @@
     <div class="copyright">
         <p class="footer-entry">
     
-            ©2024 ZhuGJ
+            ©2024-2025 Eureka
 </p>
 <!--
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a
