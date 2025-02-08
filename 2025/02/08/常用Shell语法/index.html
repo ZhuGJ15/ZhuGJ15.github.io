@@ -482,12 +482,12 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-02-08 11:30:42'>2025-02-08 11:28</time>
+            Created At : <time class="date" title='Updated At: 2025-02-08 11:53:02'>2025-02-08 11:28</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:22</span>
+        <span>Count:79</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -517,7 +517,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#case-in-%E8%AF%AD%E5%8F%A5"><span class="toc-text">case in 语句</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#case-in-%E8%AF%AD%E5%8F%A5"><span class="toc-text">case in 语句</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -536,7 +536,24 @@
         <blockquote>
 <p>本文记录一些常用的shell语法，以免总是查阅</p>
 </blockquote>
-<h4 id="case-in-语句"><a href="#case-in-语句" class="headerlink" title="case in 语句"></a>case in 语句</h4>
+<p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#case-in-%E8%AF%AD%E5%8F%A5"><span class="toc-text">case in 语句</span></a></li></ol></div></p>
+<h3 id="case-in-语句"><a href="#case-in-语句" class="headerlink" title="case in 语句"></a>case in 语句</h3><p><strong>用法示例</strong>：</p>
+<pre><code>case $&#123;变量名&#125; in
+    a)
+        echo &quot;变量值为a&quot;
+    ;;
+    b|c|d)
+        echo &quot;变量值为b或c或d&quot;
+    ;;
+    [0-9])
+        echo &quot;变量值在0-9中&quot;
+    ;;
+    *)
+        echo &quot;变量值为其他值&quot;
+    ;;
+esac
+</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
     </div>
