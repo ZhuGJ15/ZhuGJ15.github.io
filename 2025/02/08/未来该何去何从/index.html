@@ -103,7 +103,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(15)</small>
+                <small>(16)</small>
             
         </div>
     </li>
@@ -115,7 +115,7 @@
         <div data-rel="大数据">
             
             大数据
-            <small>(3)</small>
+            <small>(4)</small>
         </div>
         
     </li>
@@ -201,8 +201,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="15">
-<input type="hidden" id="yelog_site_word_count" value="5.6k">
+<input type="hidden" id="yelog_site_posts_number" value="16">
+<input type="hidden" id="yelog_site_word_count" value="5.9k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -280,6 +280,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kerberos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Linux</a>
             </li>
         
@@ -318,6 +322,15 @@
            data-author="" >
             <span class="post-title" title="常用资源网站收藏">常用资源网站收藏</span>
             <span class="post-date" title="2025-02-05 11:49:04">2025/02/05</span>
+        </a>
+        
+        
+        <a  class="All 大数据 "
+           href="/2025/02/11/Kerberos%E6%9D%83%E9%99%90%E6%9C%BA%E5%88%B6/"
+           data-tag="kerberos"
+           data-author="" >
+            <span class="post-title" title="Kerberos权限机制">Kerberos权限机制</span>
+            <span class="post-date" title="2025-02-11 15:39:37">2025/02/11</span>
         </a>
         
         
@@ -368,7 +381,7 @@
         
         <a  class="All 大数据 "
            href="/2024/11/07/spark%E8%AF%BB%E5%8F%96mysql%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98/"
-           data-tag="未完待续,spark,mysql"
+           data-tag="未完待续,mysql,spark"
            data-author="" >
             <span class="post-title" title="spark读取mysql数据问题">spark读取mysql数据问题</span>
             <span class="post-date" title="2024-11-07 18:52:01">2024/11/07</span>
@@ -482,12 +495,12 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-02-08 18:18:56'>2025-02-08 18:05</time>
+            Created At : <time class="date" title='Updated At: 2025-02-13 17:20:54'>2025-02-08 18:05</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:535</span>
+        <span>Count:884</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -517,7 +530,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2025-02-08"><span class="toc-text">2025-02-08</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2025-02-08"><span class="toc-text">2025-02-08</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2025-02-13"><span class="toc-text">2025-02-13</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -533,7 +546,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2025-02-08"><span class="toc-text">2025-02-08</span></a></li></ol></div></p>
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2025-02-08"><span class="toc-text">2025-02-08</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2025-02-13"><span class="toc-text">2025-02-13</span></a></li></ol></div></p>
 <h3 id="2025-02-08"><a href="#2025-02-08" class="headerlink" title="2025-02-08"></a>2025-02-08</h3><p>&emsp;&emsp;踏上社会快三年了，这三年时间里，经历了很多事情，心境也有了很大的变化。  从刚参加工作时的基情满满，到现在逐渐老油条；  从最开始一心工作，到现在会焦虑很多工作之外的事情。  这其中最大的因素，除了年龄渐长，还有已经不是孑然一人。  </p>
 <p>&emsp;&emsp;在社会上踏足越久，就越是感觉到迷茫，不知道该往哪个方向去。几个月前，和leader进行one one的时候，他问我喜不喜欢程序员这个职业，我沉默了一小会儿。其实，谈不上喜欢，也谈不上不喜欢。  </p>
 <p>&emsp;&emsp;这份工作，为我带来了每个月2w多的收入，已经超越了大多数的打工人，目前的公司和岗位，也决定了我的工作强度不会很高。实话说，这样一份工作，可能是大部分人梦寐以求的。作为一个打工人，我实在没法厌恶这份工作。  但是，这种日复一日、难以看到成果、难以产生反馈的工作，让我很难说喜欢。  </p>
@@ -542,7 +555,16 @@
 <p>&emsp;&emsp;这种不确定性，直接影响了我对职业生涯的规划。我想过写小说、做游戏、做生意、投资理财等等，有太多的想法。每一个想法都需要长期的投入，让我也很迷茫当下该干什么。  </p>
 <p>&emsp;&emsp;希望能早日找到答案。<br><br></p>
 <div style="text-align: right;">2025-02-08 18:04</div>
-<div style="text-align: right;">于上海&emsp;&emsp;</div>
+<div style="text-align: right;">于上海浦东&emsp;</div>
+
+<hr>
+<h3 id="2025-02-13"><a href="#2025-02-13" class="headerlink" title="2025-02-13"></a>2025-02-13</h3><p>&emsp;&emsp;前两天跟魏博聊了一会儿，他硕士毕业进入了武汉的一家国企，当时我还挺想羡慕的，听完他对生活的吐槽，感觉他的人生过得也不尽如意。所以说，不必去羡慕别人的人生，大家都是平凡打工人，都有自己的难处。更重要的是，羡慕也没用，不如过好自己的生活，把一手烂牌尽可能打好。</p>
+<p>&emsp;&emsp;最近在想，其实我也算是经历过了不少时代的风口，只是都没有意识到。十年前的网文、直播、电商，近两年的新能源，甚至股票也是。</p>
+<p>&emsp;&emsp;今天看了一下港股，发现国内的互联网中大厂，除了百度，股票都在一路涨，仅仅小米就在过去一年里，股价上涨了近四倍，哪怕像是阿里这种巨头，一年里也涨了快70%。如果抓住了机会，小赚一笔不是难事。</p>
+<p>&emsp;&emsp;事实证明，想要赚钱，抓机会的能力，永远比埋头干活儿重要得多。<strong>会思考永远比只会干活儿更有价值。</strong></p>
+<p>&emsp;&emsp;焦虑着急也没用，做好规划，按部就班一步步来吧，难的永远是从0到100w，而不是从100w到1000w。<br><br></p>
+<div style="text-align: right;">2025-02-13 17:20</div>
+<div style="text-align: right;">于上海浦东&emsp;</div>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
     </div>
