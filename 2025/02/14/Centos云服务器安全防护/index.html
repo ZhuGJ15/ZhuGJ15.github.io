@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>git常用命令 | Eureka&#39;s Blog</title>
-  <meta name="keywords" content=" 未完待续 , git ">
-  <meta name="description" content="git常用命令 | Eureka&#39;s Blog">
+  <title>Centos云服务器安全防护 | Eureka&#39;s Blog</title>
+  <meta name="keywords" content=" Centos , 安全 ">
+  <meta name="description" content="Centos云服务器安全防护 | Eureka&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="22年毕业于华中科技大学软件工程专业从事过 Web 后端工作当前方向是大数据开发工作内容包括框架开发、集群运维和数据分析目前就职于某不知名小厂">
 <meta property="og:type" content="website">
@@ -489,9 +489,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-git常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Centos云服务器安全防护" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">git常用命令</h1>
+        <h1 class="article-title">Centos云服务器安全防护</h1>
     
     <div class="article-meta">
         
@@ -501,7 +501,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="其他">其他</a>
+            <a  data-rel="Linux">Linux</a>
             
         </span>
         
@@ -509,21 +509,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">未完待续</a>
+            <a class="color2">Centos</a>
             
-            <a class="color4">git</a>
+            <a class="color3">安全</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-02-08 11:33:16'>2024-07-11 17:45</time>
+            Created At : <time class="date" title='Updated At: 2025-02-14 17:00:09'>2025-02-14 14:31</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:0</span>
+        <span>Count:506</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -553,7 +553,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-SSH%E9%98%B2%E6%8A%A4"><span class="toc-text">1. SSH防护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%AB%AF%E5%8F%A3"><span class="toc-text">更改端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%94%A8%E6%88%B7"><span class="toc-text">更改用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RSA%E7%A7%98%E9%92%A5%E7%99%BB%E5%BD%95"><span class="toc-text">RSA秘钥登录</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -569,7 +569,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>&emsp;&emsp;因为国内备案复杂，所以去年在国外买了个云服务器，AWS、GCP等一众大厂转了一圈，一个比一个贵，最后还是在 RackNerd 上买了个 2C4G 的小服务器，一年200多rmb，也不算贵。<br>&emsp;&emsp;结果，没过两个月就被各种脚本攻击渗透，直接被 RackNerd 官方给封禁了。原来，RackNerd 只负责提供一个服务器，安全防护基本等于没有。所以，这里记录一下，如何防护自己的 Centos 云服务器。</p>
+</blockquote>
+<p>&emsp;&emsp;我们个人开发使用的服务器，一般来说不具有太高的价值，不太会吸引到高强度的攻击。绝大部分情况下，我们需要应对的是一些自动化脚本的恶意扫描和登录尝试。<br>&emsp;&emsp;想要登录服务器，一般需要 <strong>IP + 端口 + 用户名 + 密码</strong>。而公网 IP 是无法隐藏的，这一点上我们做不了什么。所以，基本的安全防护，就要从其他三个方面入手。</p>
+<h3 id="1-SSH防护"><a href="#1-SSH防护" class="headerlink" title="1. SSH防护"></a>1. SSH防护</h3><h4 id="更改端口"><a href="#更改端口" class="headerlink" title="更改端口"></a>更改端口</h4><p>ssh默认的端口是22，将其改为其他端口（大于1024小于65535的都行）</p>
+<pre><code>vim /etc/ssh/sshd_config
+
+# 修改 Port 配置
+Port yourPort
+
+# 保存退出，重启sshd
+sudo systemctl restart sshd
+</code></pre>
+<h4 id="更改用户"><a href="#更改用户" class="headerlink" title="更改用户"></a>更改用户</h4><p>因为 Linux 中 root 用户是最高权限的用户，所有的 Linux 机器默认都是用 root 用户登录，所以我们需要把登录的用户名改掉，给黑客脚本增加破解难度。</p>
+<pre><code>useradd yourname -g root
+
+visudo
+
+# 给yourname用户添加权限
+yourname ALL=(ALL) NOPASSWD: ALL
+
+# 修改ssh配置，禁止通过root用户登录
+vim /etc/ssh/sshd_config
+
+PermitRootLogin no
+
+# 保存退出，重启sshd
+sudo systemctl restart sshd
+</code></pre>
+<h4 id="RSA秘钥登录"><a href="#RSA秘钥登录" class="headerlink" title="RSA秘钥登录"></a>RSA秘钥登录</h4><p>不管使用什么样的用户名和密码，都有被攻破的概率，但是使用 RSA 秘钥，就能把概率降到最低。</p>
+<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;yourhost&quot;
+
+#然后将你本地的机器上的 id_rsa.pub 复制到服务器的 authorized_keys中
+</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
     </div>
