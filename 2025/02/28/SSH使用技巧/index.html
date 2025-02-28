@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Eureka&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Eureka&#39;s Blog">
+  <title>SSH使用技巧 | Eureka&#39;s Blog</title>
+  <meta name="keywords" content=" SSH ">
+  <meta name="description" content="SSH使用技巧 | Eureka&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="22年毕业于华中科技大学软件工程专业从事过 Web 后端工作当前方向是大数据开发工作内容包括框架开发、集群运维和数据分析目前就职于某不知名小厂">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -535,18 +535,77 @@
 
     </div>
     <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
+        <div class="semicircle" data-title="Toggle full screen shortcut key s">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-SSH使用技巧" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">SSH使用技巧</h1>
+    
+    <div class="article-meta">
         
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="其他">其他</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">SSH</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2025-02-28 11:22:59'>2025-02-28 11:01</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:426</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="Jump to comment area">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7config"><span class="toc-text">用户config</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -559,15 +618,36 @@
     }
 </style>
 </div>
-            <p><strong>作者</strong>:  Eureka</p><br><strong>现居</strong>:  ShangHai</p><br><strong>经历</strong>:  后端开发、大数据集群运维、大数据开发</p>
-<p><em>闲时在这里发发牢骚，偶尔做点笔记，您就当看一乐，如能不吝赐教，感激不尽!<br></em><br><em>您可以在评论区留言，也可以通过邮件联系我。<br></em><br><em>Email: <a href="mailto:&#x68;&#101;&#108;&#x6c;&#x6f;&#x7a;&#x68;&#x75;&#x67;&#106;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;">&#x68;&#101;&#108;&#x6c;&#x6f;&#x7a;&#x68;&#x75;&#x67;&#106;&#64;&#103;&#x6d;&#x61;&#105;&#108;&#x2e;&#99;&#x6f;&#109;</a></em></p>
-<blockquote>
-<p>博客数量：<code class="article_number"></code> &emsp;<br>访问人数：<code class="site_uv"></code> &emsp;<br>访问次数：<code class="site_pv"></code> &emsp;</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>之前使用ssh，都是把各个机器的 ip 记在记事本上，用的时候打开记事本 copy 机器 ip，最近手上的机器越来越多，公司的测试机，自己的服务器，越来越费劲。所以，想把 ssh 常用的一些技巧记录下来，让以后更便捷。</p>
 </blockquote>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>可以在三个地方更改ssh配置：<br>&emsp;1. &#x2F;etc&#x2F;ssh&#x2F;ssh_config   &emsp;&emsp;这是系统配置，或者说全局配置，对所有用户都生效<br>&emsp;2. ~&#x2F;.ssh&#x2F;config   &emsp;&emsp;这里的配置只对当前用户生效<br>&emsp;3. 命令行参数   &emsp;&emsp;在使用ssh命令时，指定参数。只对当前命令有效，如果和配置文件中的有冲突，以命令行指定的参数为准。</p>
+<h3 id="用户config"><a href="#用户config" class="headerlink" title="用户config"></a>用户config</h3><blockquote>
+<p>我最开始对 SSH 的了解是，只会基本的 ssh user@ip 的方式登录服务器，最多再配置个免密。实际上，SSH 可以灵活批量配置服务器信息，配置跳板等。</p>
+</blockquote>
+<p>可以在 ~&#x2F;.ssh&#x2F; 路径下创建一个 config 文件，文件内容可以如下：</p>
+<pre><code>Host server-1
+    HostName 127.0.0.1
+    Port 22
+    User work
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    ServerAliveInterval 180
+</code></pre>
+<p>上述各配置项含义：<br><strong>Host</strong>  &emsp;可以给服务器起一个别名，后续连接可以直接使用 “ssh 别名”<br><strong>HostName</strong>  &emsp;服务器ip，这个就不过多解析了<br><strong>Port</strong>  &emsp;连接的端口<br><strong>User</strong>  &emsp;登录到目标机器上的指定用户<br><strong>PreferredAuthentications</strong>  &emsp;强制使用publickey验证<br><strong>IdentityFile</strong>  &emsp;密钥文件的路径<br><strong>ServerAliveInterval</strong>   &emsp;每隔多长时间发送一次心跳，防止长时间没有响应，ssh自动断开连接，单位是秒。</p>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -589,6 +669,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -601,11 +688,11 @@
 -->
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
