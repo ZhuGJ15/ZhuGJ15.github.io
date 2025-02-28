@@ -232,7 +232,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="20">
-<input type="hidden" id="yelog_site_word_count" value="8.1k">
+<input type="hidden" id="yelog_site_word_count" value="8.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -589,7 +589,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-02-28 11:46:33'>2025-02-28 11:01</time>
+            Created At : <time class="date" title='Updated At: 2025-02-28 14:37:22'>2025-02-28 11:01</time>
         
     </div>
     <div class="article-meta">
@@ -641,15 +641,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>之前使用ssh，都是把各个机器的 ip 记在记事本上，用的时候打开记事本 copy 机器 ip，最近手上的机器越来越多，公司的测试机，自己的服务器，越来越费劲。所以，想把 ssh 常用的一些技巧记录下来，让以后更便捷。</p>
+<p>&emsp;&emsp;之前使用ssh，都是把各个机器的 ip 记在记事本上，用的时候打开记事本 copy 机器 ip，最近手上的机器越来越多，公司的测试机，自己的服务器，越来越费劲。所以，想把 ssh 常用的一些技巧记录下来，以后用起来更便捷。</p>
 </blockquote>
 <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7config"><span class="toc-text">用户config</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">多个配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E6%9D%BF%E6%9C%BA%E7%99%BB%E5%BD%95"><span class="toc-text">跳板机登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SCP%E6%8B%B7%E8%B4%9D%E6%96%87%E4%BB%B6"><span class="toc-text">SCP拷贝文件</span></a></li></ol></li></ol></div></p>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>可以在三个地方更改ssh配置：<br>&emsp;1. &#x2F;etc&#x2F;ssh&#x2F;ssh_config   &emsp;&emsp;这是系统配置，或者说全局配置，对所有用户都生效<br>&emsp;2. ~&#x2F;.ssh&#x2F;config   &emsp;&emsp;这里的配置只对当前用户生效<br>&emsp;3. 命令行参数   &emsp;&emsp;在使用ssh命令时，指定参数。只对当前命令有效，如果和配置文件中的有冲突，以命令行指定的参数为准。</p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>可以在三个地方更改ssh配置：<br>&emsp;1. &#x2F;etc&#x2F;ssh&#x2F;ssh_config   &emsp;&emsp;这是系统配置，或者说全局配置，对所有用户都生效<br>&emsp;2. ~&#x2F;.ssh&#x2F;config   &emsp;&emsp;&emsp;这里的配置只对当前用户生效<br>&emsp;3. 命令行参数   &emsp;&emsp;&emsp;&emsp;在使用ssh命令时，指定参数。只对当前命令有效，如果和配置文件中的有冲突，以命令行指定的参数为准。</p>
 <h3 id="用户config"><a href="#用户config" class="headerlink" title="用户config"></a>用户config</h3><blockquote>
-<p>我最开始对 SSH 的了解是，只会基本的 ssh user@ip 的方式登录服务器，最多再配置个免密。实际上，SSH 可以灵活批量配置服务器信息，配置跳板等。</p>
+<p>&emsp;&emsp;我最开始对 SSH 的了解是，只会基本的 ssh user@ip 的方式登录服务器，最多再配置个免密。实际上，SSH 可以灵活批量配置服务器信息，配置跳板等。</p>
 </blockquote>
 <p>可以在 ~&#x2F;.ssh&#x2F; 路径下创建一个 config 文件，文件内容可以如下：</p>
-<pre><code>Host server-1
+<pre><code class="txt">Host server-1
     HostName 127.0.0.1
     Port 22
     User work
@@ -657,10 +657,10 @@
     IdentityFile ~/.ssh/id_rsa
     ServerAliveInterval 180
 </code></pre>
-<p>上述各配置项含义：<br><strong>Host</strong>  &emsp;可以给服务器起一个别名，后续连接可以直接使用 “ssh 别名”<br><strong>HostName</strong>  &emsp;服务器ip，这个就不过多解析了<br><strong>Port</strong>  &emsp;连接的端口<br><strong>User</strong>  &emsp;登录到目标机器上的指定用户<br><strong>PreferredAuthentications</strong>  &emsp;强制使用publickey验证<br><strong>IdentityFile</strong>  &emsp;密钥文件的路径<br><strong>ServerAliveInterval</strong>   &emsp;每隔多长时间发送一次心跳，防止长时间没有响应，ssh自动断开连接，单位是秒。</p>
+<p>上述各配置项含义：<br>&emsp;&emsp;<strong>Host</strong>  &emsp;可以给服务器起一个别名，后续连接可以直接使用 “ssh 别名”<br>&emsp;&emsp;<strong>HostName</strong>  &emsp;服务器ip，这个就不过多解析了<br>&emsp;&emsp;<strong>Port</strong>  &emsp;连接的端口<br>&emsp;&emsp;<strong>User</strong>  &emsp;登录到目标机器上的指定用户<br>&emsp;&emsp;<strong>PreferredAuthentications</strong>  &emsp;强制使用publickey验证<br>&emsp;&emsp;<strong>IdentityFile</strong>  &emsp;密钥文件的路径<br>&emsp;&emsp;<strong>ServerAliveInterval</strong>   &emsp;每隔多长时间发送一次心跳，防止长时间没有响应，ssh自动断开连接，单位是秒。</p>
 <p><strong>注意</strong>: 这个文件是从上向下顺序执行的，当匹配到第一个主机定义时，并不会终止，而是继续往下查找，检查是否有其他匹配的 Host 定义。如果有另一个 Host 定义匹配，SSH 将该 Host 定义下的配置选项跟前面匹配到的主机定义配置选项合并（随着继续往下读取配置，最终配置选项是叠加的）</p>
 <p>例如：</p>
-<pre><code>Host server-1
+<pre><code class="txt">Host server-1
     HostName 127.0.0.1
     Port 22
 
@@ -673,14 +673,14 @@ Host server*
 </code></pre>
 <p>&emsp;在这个例子中，别名为server开头的服务器，通过ssh登录都是root用户。</p>
 <h4 id="多个配置文件"><a href="#多个配置文件" class="headerlink" title="多个配置文件"></a>多个配置文件</h4><p>&emsp;&emsp;如果需要管理非常多的服务器，全写到一个文件里会很乱很难维护，也不方便共享。事实上，~&#x2F;.ssh&#x2F;config 中支持引用其它文件。例如可以建一个新的配置文件 ~&#x2F;.ssh&#x2F;config-test，然后在 ~&#x2F;.ssh&#x2F;config 的开头加入如下一行即可：</p>
-<pre><code>Include config-test
+<pre><code class="txt">Include config-test
 </code></pre>
 <p>事实上这里也可以用通配符，比如:</p>
-<pre><code>Include config*
+<pre><code class="txt">Include config*
 </code></pre>
 <p>这样 ~&#x2F;.ssh&#x2F; 目录下的所有 config* 开头的文件都会被引用到。</p>
 <h4 id="跳板机登录"><a href="#跳板机登录" class="headerlink" title="跳板机登录"></a>跳板机登录</h4><p>&emsp;&emsp;实际工作中，通常需要跳板机才可登录线上机器，这会产生两个麻烦，一是登录要两次，如果配置 SSH config 还需要在跳板机也配置一份儿；二是拷贝文件十分麻烦，要拷贝两次。<br>&emsp;&emsp;我们可以这样配置：</p>
-<pre><code>Host JumpServer
+<pre><code class="txt">Host JumpServer
     Hostname 1.2.3.4
     User work
 
@@ -697,10 +697,10 @@ Host Server-2
 </code></pre>
 <p>&emsp;&emsp;上述配置表示所有 Server 开头的服务器，在登录的时候都要从 JumpServer 这个服务器跳转一下。这时候我们想登录 172.1.0.1，只需要直接输入： ssh Server-1<br>&emsp;&emsp;注意一个细节是，这种配置下我们是直接从本地登录内部服务器，所以在配置免密时，是需要把本地的公钥放到内部服务器的。</p>
 <h4 id="SCP拷贝文件"><a href="#SCP拷贝文件" class="headerlink" title="SCP拷贝文件"></a>SCP拷贝文件</h4><p>&emsp;&emsp;如果想在两台服务器之间拷贝文件，事实上是可以在本地执行 scp 的:</p>
-<pre><code>scp server1:/path/file server2:/path/
+<pre><code class="shell">scp server1:/path/file server2:/path/
 </code></pre>
 <p>&emsp;&emsp;上述命令，需要在server2中已经配置了server1的免密登录，否则是无法直接从server1拷贝文件到server2的。如果没有配置server1和server2的免密，我们可以用本机作为中转，只需要加一个参数 <code>-3</code>:</p>
-<pre><code>scp -3 server1:/path/file server2:/path/
+<pre><code class="shell">scp -3 server1:/path/file server2:/path/
 </code></pre>
 
       
