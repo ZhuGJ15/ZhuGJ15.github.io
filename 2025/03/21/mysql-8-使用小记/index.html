@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Eureka&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Eureka&#39;s Blog">
+  <title>mysql 8 使用小记 | Eureka&#39;s Blog</title>
+  <meta name="keywords" content=" mysql ">
+  <meta name="description" content="mysql 8 使用小记 | Eureka&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="22年毕业于华中科技大学软件工程专业从事过 Web 后端工作当前方向是大数据开发工作内容包括框架开发、集群运维和数据分析目前就职于某不知名小厂">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
    class="avatar_target">
@@ -612,18 +612,77 @@
 
     </div>
     <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
+        <div class="semicircle" data-title="Toggle full screen shortcut key s">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-mysql-8-使用小记" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">mysql 8 使用小记</h1>
+    
+    <div class="article-meta">
         
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="数据库">数据库</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">mysql</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2025-03-24 10:59:53'>2025-03-21 15:21</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:554</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="Jump to comment area">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Centos%E5%AE%89%E8%A3%85MySQL"><span class="toc-text">1. Centos安装MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%92%8C%E8%B5%8B%E6%9D%83"><span class="toc-text">2. 创建用户和赋权</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -636,15 +695,41 @@
     }
 </style>
 </div>
-            <p><strong>作者</strong>:  Eureka</p><br><strong>现居</strong>:  ShangHai</p><br><strong>经历</strong>:  后端开发、大数据集群运维、大数据开发</p>
-<p><em>闲时在这里发发牢骚，偶尔做点笔记，您就当看一乐，如能不吝赐教，感激不尽!<br></em><br><em>您可以在评论区留言，也可以通过邮件联系我。<br></em><br><em>Email: <a href="mailto:&#104;&#101;&#x6c;&#108;&#111;&#122;&#104;&#117;&#x67;&#x6a;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#104;&#101;&#x6c;&#108;&#111;&#122;&#104;&#117;&#x67;&#x6a;&#64;&#x67;&#x6d;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;</a></em></p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>&emsp;&emsp;最近自己做了个web，上次写后端代码还是实习的时候，一晃过去了3年，技术框架也大变，已经不再是万年的<code>java 8 + sprintboot 2 + mysql 5.7</code>。这篇文章记录一下，这个过程中使用<code>mysql 8</code>遇到的不一样的地方。</p>
+</blockquote>
+<hr>
+<p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Centos%E5%AE%89%E8%A3%85MySQL"><span class="toc-text">1. Centos安装MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%92%8C%E8%B5%8B%E6%9D%83"><span class="toc-text">2. 创建用户和赋权</span></a></li></ol></div></p>
+<h3 id="1-Centos安装MySQL"><a href="#1-Centos安装MySQL" class="headerlink" title="1. Centos安装MySQL"></a>1. Centos安装MySQL</h3><p><strong>(1) 版本</strong><br>&emsp;Centos: 8<br>&emsp;MySQL: 8.4.4 LTS<br><strong>(2) 安装</strong><br>&emsp;<em>查看系统环境</em>: 使用 <code>lsb_release -a</code> 命令查看Linux系统版本，便于下载MySQL安装包时选择对应的版本。</p>
+<p>&emsp;<em>下载安装包</em>： <a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a> </p>
+<p>&emsp;<em>上传至服务器并解压</em>；</p>
+<p>&emsp;<em>查看服务器是否已安装MySQL和MariaDB</em>: <code>yum list installed | grep mariadb &amp;&amp; yum list installed | grep mysql</code> (如有，则<code>yum remove</code>卸载)</p>
+<p>&emsp;<em>按顺序安装以下文件</em>：</p>
 <blockquote>
-<p>博客数量：<code class="article_number"></code> &emsp;<br>访问人数：<code class="site_uv"></code> &emsp;<br>访问次数：<code class="site_pv"></code> &emsp;</p>
+<p>&emsp;&emsp;rpm -ivh mysql-community-common-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-client-plugins-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-libs-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-libs-compat-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-devel-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-client-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-icu-data-files-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;rpm -ivh mysql-community-server-8.0.29-1.el7.x86_64.rpm<br>&emsp;&emsp;如果因缺少依赖安装失败，则安装对应依赖即可，如<code>yum install openssl-devel</code></p>
+</blockquote>
+<p>&emsp;<em>初始化MySQL</em>: <code>mysqld --initialize --user=mysql</code> (这里是使用mysql用户初始化，也可以使用其他用户)</p>
+<p>&emsp;<em>修改配置文件</em>: 配置文件是 <code>/etc/my.cnf</code>，可以按照需求修改其中的 port、dataDir、logDir等。</p>
+<p>&emsp;<em>查看初始密码</em>: <code>grep &quot;password&quot; /var/log/mysqld.log</code></p>
+<p>&emsp;<em>启动MySQL服务</em>: <code>systemctl start mysqld</code></p>
+<p>&emsp;<em>使用初始密码连接MySQL，并修改初始密码</em>: <code>alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;新密码&#39;;</code></p>
+<h3 id="2-创建用户和赋权"><a href="#2-创建用户和赋权" class="headerlink" title="2. 创建用户和赋权"></a>2. 创建用户和赋权</h3><p>&emsp;在<code>MySQL 5.7</code>，可以直接使用 <code>grant</code> 命令，创建用户和赋权都能完成:</p>
+<blockquote>
+<p>&emsp;&emsp;<code>grant select on test.* to &#39;test&#39;@&#39;localhost&#39; identified by &#39;abcdefghijk&#39;;</code><br>&emsp;在 <code>mysql 8</code>中，需要先创建用户，才能赋权：<br>&emsp;&emsp; <code>create user &#39;test&#39;@&#39;localhost&#39; identified with mysql_native_password by &#39;abcdefghijk&#39;;</code><br>&emsp;&emsp;<code>grant select on test.* to &#39;test&#39;@&#39;localhost&#39;;</code></p>
 </blockquote>
 
-        </article>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -666,6 +751,13 @@
 </script>
 
 
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -678,11 +770,11 @@
 -->
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="Toggle full screen shortcut key s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 </body>
