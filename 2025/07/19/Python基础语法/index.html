@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>对于互联网和广告的一些想法 | Eureka&#39;s Blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="对于互联网和广告的一些想法 | Eureka&#39;s Blog">
+  <title>Python基础语法 | Eureka&#39;s Blog</title>
+  <meta name="keywords" content=" Python , 语法 ">
+  <meta name="description" content="Python基础语法 | Eureka&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="22年毕业于华中科技大学软件工程专业从事过 Web 后端工作当前方向是大数据开发工作内容包括框架开发、集群运维和数据分析目前就职于某不知名小厂">
 <meta property="og:type" content="website">
@@ -652,9 +652,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-对于互联网和广告的一些想法" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Python基础语法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">对于互联网和广告的一些想法</h1>
+        <h1 class="article-title">Python基础语法</h1>
     
     <div class="article-meta">
         
@@ -664,20 +664,29 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="其他">其他</a>
+            <a  data-rel="Python">Python</a>
             
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">Python</a>
+            
+            <a class="color3">语法</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2025-02-08 19:12:00'>2024-05-28 17:08</time>
+            Created At : <time class="date" title='Updated At: 2025-07-19 12:42:24'>2025-07-19 10:46</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:702</span>
+        <span>Count:1.5k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -707,7 +716,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="toc-text">语法规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">基础语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List%E5%92%8CTuple"><span class="toc-text">List和Tuple</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Tuple"><span class="toc-text">Tuple</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">条件判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-text">模式匹配</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -723,15 +732,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;交易，就是一方买，一方卖的过程。买房有需求，卖方有资源，资源成本与价格之间的差价就是赚到的钱。</p>
-<p>&emsp;&emsp;互联网只是加快了信息传播的途径，让有需求的买方能够接触到更多的资源卖方，让资源卖方能够找到更多的需求方，互联网赚钱的本质就是通过一个平台，将买方推荐给卖方，从而拿到“中介费”。</p>
-<p>&emsp;&emsp;那怎么知道谁有需求，又如何联系到他们呢？答案是流量，互联网平台通过自身积攒的用户，自己拥有的流量，通过各种技术，推算出这是怎样的用户，就是给人打标签，从而推算出这个人可能有哪些需求，然后将他们推荐给卖方。这就是互联网广告的逻辑。</p>
-<p>&emsp;&emsp;例如百度，百度通过搜索引擎积累了庞大的用户量，通过记录他们的搜索记录和浏览记录，推断这个人的性别、地域、职业、收入、喜好等，给用户打上不同的标签，在不同的维度对他们进行人群划分，比如40岁以上、年收入10w以上、喜欢买奢侈品等。</p>
-<p>&emsp;&emsp;对资源卖方（资源方，他们有打广告的需求，因此叫他们广告主），百度将这些划分好的人群推荐给广告主们，广告主通过竞价获得百度的搜索结果排行。</p>
-<p>&emsp;&emsp;百度、腾讯、阿里，包括头条都是这个逻辑。电商不是用流量变现，但道理是一样的。这样的逻辑的关键在于，赚钱多少，取决于用户量或者说流量。百度、阿里走下坡路，就是因为用户粘性不够，留不住用户，而腾讯没有这个忧虑，因为它有天然的流量源–微信。</p>
-<p>&emsp;&emsp;不管是搜索引擎、电商平台、打车、外卖还是娱乐平台，他们都很难留住用户，因为用户的转移成本太低了，有一个更好的软件出来了，马上转移，而微信这种社交平台，用户转移成本高，哪怕有更好的平台出现，只要微信不作死，用户也大概率不会转移，因为人际关系的转移成本太高了，除非全国人一起换平台。</p>
-<p>&emsp;&emsp;所以从这个角度来看，百度、阿里、滴滴、美团…..不小心的话都有可能落后，只有腾讯可能活得更久。</p>
-<p>&emsp;&emsp;腾讯有没有可能g呢，有，但绝不是被第二个微信干倒。淘汰微信的一定是另一个赛道的产品。</p>
+        <blockquote>
+<p>&emsp;&emsp;其实Python在本科的时候就有学习过，那会儿还用的是Python 2，毕业以后一直接触的是Java，很少有机会用到Python。但是Python在使用，尤其是写脚本、做算法题的时候，特别好用。所以，这次专门写一个博客，来记录一下Python的基础语法，以免每次使用都去找教程😭</p>
+</blockquote>
+<p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="toc-text">语法规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">基础语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List%E5%92%8CTuple"><span class="toc-text">List和Tuple</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#List"><span class="toc-text">List</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Tuple"><span class="toc-text">Tuple</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">条件判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-text">模式匹配</span></a></li></ol></li></ol></div></p>
+<h3 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h3><h4 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h4><ol>
+<li>Python代码不使用分号结尾，采用缩进来表示代码块</li>
+<li>Python中使用整数时，如果位数过多，可以在数字中间使用<code>_</code>来分隔，如<code>10_000</code>和<code>10000</code>表示的意义相同</li>
+<li>对于很大或者很小的浮点数，需要用科学计数法表示，如5乘10的9次方，可以表示成<code>5e9</code><blockquote>
+<p>因为整数和浮点数在计算机内部的存储方式不同，运算方式也不一样，整数的运算是精准的（除法也是），而浮点数的运算存在四舍五入的误差。</p>
+</blockquote>
+</li>
+<li>字符串是用<code>&#39;</code>或<code>&quot;</code>括起来的，如果字符串中也有<code>&#39;</code>，那么可以用<code>&quot;</code>括起来，例如：<code>&quot;i&#39;m headsome&quot;</code>，如果字符串中本身就有<code>&#39;</code>和<code>&quot;</code>，那就需要<code>\</code>来进行转义。</li>
+<li>如果字符串中有<code>\</code>，那么就可以使用r来表示该字符串不转义，例如：<code>r&quot;hello\a\b&quot;</code></li>
+<li>如果字符串中有多行，大量使用<code>\n</code>影响阅读，那么可以使用<code>...</code>来表示多行内容</li>
+<li>布尔值是<code>True</code>和<code>False</code>，空值是<code>None</code>，注意要首字母大写</li>
+<li>Python是动态语言，变量的数据类型并不固定，而Java是静态语言，声明变量必须明确其数据类型</li>
+<li>除法是使用<code>/</code>，得到的结果是浮点数，哪怕是两个整数相除，如果想得到整数，需要使用地板除，就是<code>//</code>，而想得到余数，使用<code>%</code></li>
+<li>在计算机中，任何数据其实都可以看做是一个“对象”，变量的作用是指向这些对象，给变量赋值的过程，其实就是将这些“对象”的地址，和变量关联起来。例如，在Python中<code>x = y</code>，是把x指向y所关联的对象，那么之后，如果重新对y进行赋值，x的值是不变的。</li>
+<li>Python中的整数和浮点数，没有大小限制，但是超过一定范围，就会被表示为<code>inf</code>(无限大)</li>
+<li>字符串格式化：<code>%d</code>（整数）、<code>%f</code>（浮点数）、<code>%s</code>（字符串）；<br>也可以使用 format ；或者在字符串前加上f前缀；例如：<pre><code class="python">print(&#39;%2d-%02d&#39; % (3, 1))    #指定是否补零
+print(&#39;%.2f&#39; % 3.1415926)     #指定小数位数
+print(&#39;Hello, &#123;0&#125;, 成绩提升了 &#123;1:.1f&#125;%&#39;.format(&#39;小明&#39;, 17.125)) # 这一段的输出是&quot;hello,小明,成绩提升了17.1%&quot;
+
+a = &quot;tom&quot;, b = &quot;12&quot;
+print(f&#39;&#123;a&#125;, 今年&#123;b&#125;岁了&#39;)
+</code></pre>
+</li>
+<li>可以使用 <code>int()</code>、<code>str()</code>来转换数据类型。</li>
+</ol>
+<h4 id="List和Tuple"><a href="#List和Tuple" class="headerlink" title="List和Tuple"></a>List和Tuple</h4><h5 id="List"><a href="#List" class="headerlink" title="List"></a>List</h5><blockquote>
+<p>&emsp;Python中的List就是Java中的数组，是一个有序的集合。但不一样的是，Python的List可以随时添加或删除其中的元素；且List是变长的，不需要指定长度；List也不需要元素的数据类型一致。<br>&emsp;Python的List索引可以为负数，负数就是从最后一个元素开始倒数。<br>假设现在有一个List, <code>a = [&quot;apple&quot;, &quot;orange&quot;]</code><br>常用方法：<br>&emsp;- 追加数据： <code>a.append(&quot;fruit&quot;)</code><br>&emsp;- 插入数据： <code>a.insert(1, &quot;eat&quot;)</code><br>&emsp;- 删除末尾元素： <code>a.pop()</code><br>&emsp;- 删除指定元素： <code>a.pop(1)</code><br>&emsp;- 列表长度： <code>len(a)</code></p>
+</blockquote>
+<h5 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h5><blockquote>
+<p>&emsp;Tuple和List非常类似，但是Tuple一旦初始化之后就不能修改，所以它没有append()、insert()这类方法，但是获取元素的方式和List是一样的；<br>&emsp;不可变的Tuple的意义在于，更安全，当定义Tuple的时候，就需要确定下来它的元素<br>注意：只有一个元素的Tuple在定义的时候，需要加上<code>,</code>来消除歧义，比如：<code>a = (1, )</code>，如果不加上这个逗号的话，<code>(1)</code>可以理解为数学意义上的括号。因此，Python在显示只有1个元素的tuple时，也会加一个逗号，防止误解。</p>
+</blockquote>
+<p>&emsp;这里说的不变，指的是Tuple元素的索引不变，比如说，如果<code>a = (&#39;aaa&#39;, &#39;bbb&#39;, [&#39;ccc&#39;, &#39;ddd&#39;])</code>，那么这个时候，<code>a[3]</code>这个元素是一个List，这个List是可变的。</p>
+<h4 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h4><ol>
+<li><code>if</code>、<code>else</code>、<code>elif</code></li>
+</ol>
+<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><ol>
+<li>简单匹配，举例说明:</li>
+</ol>
+<pre><code class="python">score = &#39;B&#39;
+
+match score:
+    case &#39;A&#39;:
+        print(&#39;score is A.&#39;)
+    case &#39;B&#39;:
+        print(&#39;score is B.&#39;)
+    case &#39;C&#39;:
+        print(&#39;score is C.&#39;)
+    case _: # _表示匹配到其他任何情况
+        print(&#39;score is ???.&#39;)
+</code></pre>
+<ol start="2">
+<li>复杂匹配。match语句除了可以匹配简单的单个值外，还可以匹配多个值、匹配一定范围，并且把匹配后的值绑定到变量，如：</li>
+</ol>
+<pre><code class="python">age = 15
+
+match age:
+    case x if x &lt; 10:
+        print(f&#39;&lt; 10 years old: &#123;x&#125;&#39;)
+    case 10:
+        print(&#39;10 years old.&#39;)
+    case 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18:
+        print(&#39;11~18 years old.&#39;)
+    case 19:
+        print(&#39;19 years old.&#39;)
+    case _:
+        print(&#39;not sure.&#39;)
+</code></pre>
+<ol start="3">
+<li>匹配列表<br>match语句还可以匹配列表，功能非常强大。</li>
+</ol>
+<p>我们假设用户输入了一个命令，用args &#x3D; [‘gcc’, ‘hello.c’]存储，下面的代码演示了如何用match匹配来解析这个列表：</p>
+<pre><code class="python">args = [&#39;gcc&#39;, &#39;hello.c&#39;, &#39;world.c&#39;]
+# args = [&#39;clean&#39;]
+# args = [&#39;gcc&#39;]
+
+match args:
+    # 如果仅出现gcc，报错:
+    case [&#39;gcc&#39;]:
+        print(&#39;gcc: missing source file(s).&#39;)
+    # 出现gcc，且至少指定了一个文件:
+    case [&#39;gcc&#39;, file1, *files]:
+        print(&#39;gcc compile: &#39; + file1 + &#39;, &#39; + &#39;, &#39;.join(files))
+    # 仅出现clean:
+    case [&#39;clean&#39;]:
+        print(&#39;clean&#39;)
+    case _:
+        print(&#39;invalid command.&#39;)
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出错误或表达不够清晰之处。可以在评论区留言，也可以邮件至 hellozhugj@gmail.com </span>
